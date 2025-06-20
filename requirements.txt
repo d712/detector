@@ -3,10 +3,5 @@ uvicorn
 numpy
 pandas
 pyyaml
-os
 joblib
 mediapipe
-argparse
-yaml
-shutil
-subprocess
