@@ -5,3 +5,4 @@ pandas
 pyyaml
 joblib
 mediapipe==0.10.21
+python-multipart
