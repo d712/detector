@@ -42,7 +42,9 @@ def main(
     # df = dm.folder2df(config['input_dir'])
     # df.to_csv(os.path.join(config['output_dir'],'predictions.csv'))
     
-    if df.flag.sum() > 0:
+    if df is None:
+        print('Mediapipe does not detect any hands in this picture.')
+    elif df.flag.sum() > 0:
         print(f'{df.flag.sum()} out of {df.shape[0]} hand(s) flagged.')
     else:
         print(f'Clean. {df.shape[0]} hand(s) detected.')
