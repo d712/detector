@@ -16,7 +16,7 @@ def run(img: UploadFile=File(...)):
     return {
         'output': result.stdout,
         'status': result.returncode,
-        'error': result.stderr
+        'msg': result.stderr
     }
 #  
 @app.get("/upload", response_class=HTMLResponse)
