@@ -41,10 +41,11 @@ def main(
     df = dm.file2detection(img_path)
     # df = dm.folder2df(config['input_dir'])
     # df.to_csv(os.path.join(config['output_dir'],'predictions.csv'))
+    
     if df.flag.sum() > 0:
-        print(f'{df.flag.sum()} out of {df.shape[0]} hands flagged.')
+        print(f'{df.flag.sum()} out of {df.shape[0]} hand(s) flagged.')
     else:
-        print(f'Clean. {df.shape[0]} hands detected.')
+        print(f'Clean. {df.shape[0]} hand(s) detected.')
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
