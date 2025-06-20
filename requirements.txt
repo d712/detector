@@ -4,4 +4,4 @@ numpy
 pandas
 pyyaml
 joblib
-mediapipe
+mediapipe==0.9.1.0
