@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+numpy
+pandas
+pyyaml
+sys
+os
+joblib
+mediapipe
+argparse
+yaml
