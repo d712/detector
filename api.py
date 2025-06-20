@@ -15,9 +15,10 @@ def run(img: UploadFile=File(...)):
     
     return {
         'output': result.stdout,
-        'status': result.returncode
+        'status': result.returncode,
+        'error': result.stderr
     }
-#  'error': result.stderr
+#  
 @app.get("/upload", response_class=HTMLResponse)
 async def upload_form():
     return """
