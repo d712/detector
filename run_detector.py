@@ -6,26 +6,29 @@ import mediapipe as mp
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 
-def load_config(path):
+def load_config(path: str) -> dict:
+    """Load the configs in the yaml file from path."""
     with open(path, 'r') as file:
         return yaml.safe_load(file)
 
-def createDetector(model, num_hands):
+def createDetector(model: str, num_hands: int) -> 'vision.HandLandmarker':
+    """Create a Mediapipe detector from chosen Mediapipe model, and max number of hands to be detected."""
     base_options = python.BaseOptions(model_asset_path=model)
     options = vision.HandLandmarkerOptions(base_options=base_options,num_hands=num_hands)
     detector = vision.HandLandmarker.create_from_options(options)
     return detector
 
 def main(
-    img_path,
-    config_path='config.yaml',
-    model_path=None,
-    model_threshold=None,
-    input_dir=None,
-    point2origin=None,
-    point2y=None,
-    point2xy=None
-):
+    img_path: str,
+    config_path: str = 'config.yaml',
+    model_path: str | None = None,
+    model_threshold: float | None = None,
+    input_dir: str | None = None,
+    point2origin: int | None = None,
+    point2y: int | None = None,
+    point2xy: int | None = None
+) -> None:   
+    """Main function. Detects existance of hands in a picture and flags if middle finger gestures are detected."""   
     config = load_config(config_path)
     
     if model_path is not None:
