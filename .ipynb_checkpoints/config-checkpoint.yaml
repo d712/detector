@@ -1,9 +1,0 @@
-mediapipe_task: hand_landmarker.task
-num_hands: 10
-model_path: mlp_estimator.pkl
-model_threshold: 0.26
-input_dir: "/Users/heyhey/Graduate Center Dropbox/Heyun Li/edgar/detector/data/train/middle_finger"
-output_dir: "/Users/heyhey/Graduate Center Dropbox/Heyun Li/edgar/detector"
-point2origin: 0
-point2y: 9
-point2xy: 5
