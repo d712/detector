@@ -10,7 +10,7 @@ def homefunc() -> dict:
     return {"msg":"sup"}
 
 @awsapi.post('/run/')
-async def checkPics(pics: list[UploadFile] = File(...)):
+async def checkPics(pics: list[UploadFile] = File(...)) -> dict:
     """Check uploaded picture(s)."""
     inputfoldername = "uploaded" + datetime.now().strftime("%y%m%d%H%M%S") + uuid.uuid4().hex
     outputfoldername = inputfoldername + "results"
