@@ -23,7 +23,8 @@ def createDetector(model: str, num_hands: int) -> 'vision.HandLandmarker':
 
 def summarizeFinding(df: pd.DataFrame) -> list:
     """Given prediction results for 1 image, create a message that summarizes findings."""
-    msg = f"{df['flag_hand'].sum()} out of {df.shape[0]} hand(s) flagged in {df.iloc[0]['filename']}"
+    filename = df.iloc[0]['filename'].split('/')[-1]
+    msg = f"{df['flag_hand'].sum()} out of {df.shape[0]} hand(s) flagged in {filename}."   
     return msg      
         
 def main(
