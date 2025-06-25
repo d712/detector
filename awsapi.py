@@ -10,7 +10,7 @@ def homefunc() -> dict:
     return {"msg":"sup"}
 
 @awsapi.post('/run/')
-async def checkPics(pics: list[UploadFile] = File(...)) -> dict:
+async def check_pics(pics: list[UploadFile] = File(...)) -> dict:
     """
     Runs the detection model on each photo uploaded.
     
@@ -30,21 +30,21 @@ async def checkPics(pics: list[UploadFile] = File(...)) -> dict:
     os.makedirs(inputfoldername, exist_ok=True)
     os.makedirs(outputfoldername, exist_ok=True)
     # For each photo
-    for p in pics:
+    for pic in pics:
         # Create a filepath to the photo
-        filepath = os.path.join(inputfoldername, p.filename)
+        filepath = os.path.join(inputfoldername, pic.filename)
         # Write the file
-        with open(filepath, 'wb') as f:
-            shutil.copyfileobj(p.file, f)
+        with open(filepath, 'wb') as file:
+            shutil.copyfileobj(pic.file, file)
     
     # Once we have a folder of photos, we can run the model on them
-    df, msgs = runDetector.main(
+    _, msgs = runDetector.main(
         input_dir=inputfoldername,
         output_dir=outputfoldername
     )
     # And return the result
     return {
-        "Status": 'complete', # TODO: fix capitalizations of this dict.
-        "Findings": msgs
+        "status": 'complete', # TODO: fix capitalizations of this dict.
+        "findings": msgs
     }
     

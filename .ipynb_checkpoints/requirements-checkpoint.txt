@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+numpy
+pandas
+pyyaml
+joblib
+mediapipe==0.10.21
+python-multipart
+scikit-learn==1.5.1
