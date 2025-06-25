@@ -23,6 +23,7 @@ async def checkPics(pics: list[UploadFile] = File(...)) -> dict:
     A dict in the format `{"Status": "complete", "Findings": [result_str_1, result_str_2, etc]}
     """
     # First we'll create a folder for the uploaded files based on the start time and a UUID to ensure we don't get any collisions in folder name
+    # NOTE: we convert the uuid to hex to avoid characters we can't inclue in a filename
     inputfoldername = "uploaded" + datetime.now().strftime("%y%m%d%H%M%S") + uuid.uuid4().hex
     # The output folder will be the same, appended with "_results"
     outputfoldername = inputfoldername + "_results"
