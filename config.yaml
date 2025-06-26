@@ -1,9 +1,20 @@
+# Google Mediapipe model for detecting hands in static pictures
 mediapipe_task: hand_landmarker.task
+# Google Mediapipe config for maximum amount of hands to detect in a picture
 num_hands: 10
+# Multi-level perception model for gesture (middle finger) detection
 model_path: mlp_estimator.pkl
+# The hand will be flagged for detected middle finger gesture if probability predicted from the model exceeds model threshold
 model_threshold: 0.26
+# The gesture detection model will check all files (pictures) in this folder
 input_dir: ""
+# The probability predictions from the model will be stored in this folder
 output_dir: ""
+# The point that needs to become the origin (0,0,0) after normalization. The point is one of the 21 hand landmarks from Mediapipe's hand detection
 point2origin: 0
+# The point that needs to lie somewhere on the y axis at (0,y,0) after normalization. The point is one of the 21 hand landmarks from Mediapipe's hand detection
 point2y: 9
+# The point that needs to lie somewhere on the xy-plane at (x,y,0) after normalization. The point is one of the 21 hand landmarks from Mediapipe's hand detection
 point2xy: 5
+# Mediapipe's hand detection model uses 21 points/landmarks to define a hand
+num_hand_landmarks: 21
