@@ -1,8 +1,22 @@
 from fastapi import FastAPI, UploadFile, File
+from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 import os, shutil, uuid, run_detector
 
 awsapi = FastAPI()
+
+orgns = [
+    "https://d712.github.io",
+    "http://localhost:3000"
+]
+
+awsapi.add_middleware(
+    CORSMiddleware,
+    allow_origins=orgns,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
 
 @awsapi.get('/')
 def homefunc() -> dict:
