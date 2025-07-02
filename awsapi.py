@@ -24,7 +24,12 @@ def homefunc() -> dict:
     """Check if the api is connected."""
     return {"msg":"sup"}
 
-@awsapi.post('/run/')
+@awsapi.post('/')
+def root_post() -> dict:
+    """Check if the api gateway integration is posting to /."""
+    return {"msg":"Got POST /"}
+
+@awsapi.post('/run')
 async def check_pics(pics: list[UploadFile] = File(...)) -> dict:
     """
     Runs the detection model on each photo uploaded.
