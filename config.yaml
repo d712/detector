@@ -1,7 +1,7 @@
 # Google Mediapipe model for detecting hands in static pictures
 mediapipe_task: hand_landmarker.task
 # Google Mediapipe config for maximum amount of hands to detect in a picture
-num_hands: 10
+num_hands: 100
 # Multi-level perception model for gesture (middle finger) detection
 model_path: mlp_estimator.pkl
 # The hand will be flagged for detected middle finger gesture if probability predicted from the model exceeds model threshold
