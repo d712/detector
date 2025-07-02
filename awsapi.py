@@ -5,9 +5,10 @@ import os, shutil, uuid, run_detector
 
 awsapi = FastAPI()
 
+# CORS to allow github website and local dev server traffic
 orgns = [
     "https://d712.github.io",
-    "http://localhost:3000"
+    "http://localhost:5173"
 ]
 
 awsapi.add_middleware(
@@ -58,7 +59,6 @@ async def check_pics(pics: list[UploadFile] = File(...)) -> dict:
     )
     # And return the result
     return {
-        "status": 'complete',
         "findings": msgs
     }
     
